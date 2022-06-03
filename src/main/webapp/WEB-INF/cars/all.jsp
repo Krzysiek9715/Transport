@@ -57,6 +57,7 @@
     </tbody>
 
 </table>
+<a href="<c:out value="/"/>">Menu główne</a>
 
 </body>
 </html>

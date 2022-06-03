@@ -1,6 +1,8 @@
 package com.example.projektkoncowy.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "drivers")
@@ -22,6 +24,10 @@ public class Drivers {
 
     @OneToOne(mappedBy = "driver")
     private Cars cars;
+
+    @OneToMany(mappedBy = "drivers")
+    private List<Loads> loads=new ArrayList<>();
+
 
     public Long getId() {
         return id;
@@ -73,13 +79,6 @@ public class Drivers {
 
     @Override
     public String toString() {
-        return "Drivers{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", idSerialNumber='" + idSerialNumber + '\'' +
-                ", phoneNumber=" + phoneNumber +
-                ", cars=" + cars.getPlates() +
-                '}';
+        return "Driver: id: "+ id +": "+ firstName + " " + lastName;
     }
 }

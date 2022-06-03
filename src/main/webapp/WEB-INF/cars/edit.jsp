@@ -12,7 +12,7 @@
 
 <html>
 <head>
-    <title>Edytuj dane kierowcy</title>
+    <title>Edytuj dane samochodu</title>
 </head>
 <body>
 <c:url var="edit" value="/cars/edit"/>

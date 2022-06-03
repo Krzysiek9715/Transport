@@ -12,10 +12,11 @@
 <head>
     <title>Strona główna</title>
 </head>
-<body>
+<b>
 <header>Menu</header>
-<a href="<c:out value="drivers/all"/>">Kierowcy</a>
-<a href="<c:out value="cars/all"/>">Samochody</a>
+<a href="<c:out value="drivers/all"/>">Kierowcy</a></b>
+<a href="<c:out value="cars/all"/>">Samochody</a></b>
+<a href="<c:out value="loads/all"/>">Ładunki</a></b>
 
 
 

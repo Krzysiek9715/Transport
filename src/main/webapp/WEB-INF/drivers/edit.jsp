@@ -18,14 +18,19 @@
 <c:url var="edit" value="/drivers/edit"/>
 <form:form method="POST" modelAttribute="driver" action="${edit}">
     <form:hidden path="id"/>
+    Imię:
     <form:input path="firstName"/>
     <form:errors path="firstName"/>
+    Nazwisko:
     <form:input path="lastName"/>
     <form:errors path="lastName"/>
+    Numer dowodu:
     <form:input path="idSerialNumber"/>
     <form:errors path="idSerialNumber"/>
+    Numer telefonu:
     <form:input path="phoneNumber"/>
     <form:errors path="phoneNumber"/>
+    Id samochodu:
     <form:input path="cars"/>
     <form:errors path="cars"/>
     <input type="submit" value="SAVE EDIT">

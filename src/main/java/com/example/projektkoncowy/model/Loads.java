@@ -22,12 +22,17 @@ public class Loads {
     @Column
     private Integer kilometers;
 
+
+    @Column(columnDefinition = "ENUM('WITH_IMPORT','WITHOUT_IMPORT')")
+    @Enumerated(EnumType.STRING)
     private LoadImport loadImport;
 
     @ManyToOne
     @JoinColumn(name = "driver_id")
     private Drivers drivers;
 
+    @OneToOne(mappedBy = "loads")
+    private Imports imports;
 
     public Long getId() {
         return id;

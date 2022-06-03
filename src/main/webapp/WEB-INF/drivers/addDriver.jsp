@@ -9,7 +9,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Add driver</title>
+    <title>Dodaj kierowcę</title>
 </head>
 <body>
 
