@@ -22,6 +22,7 @@ public class Drivers {
     private Long phoneNumber;
 
 
+
     @OneToOne(mappedBy = "driver")
     private Cars cars;
 
