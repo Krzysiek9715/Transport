@@ -21,7 +21,8 @@ public class Drivers {
     @Column
     private Long phoneNumber;
 
-
+    @OneToOne(mappedBy = "drivers")
+    private User user;
 
     @OneToOne(mappedBy = "driver")
     private Cars cars;

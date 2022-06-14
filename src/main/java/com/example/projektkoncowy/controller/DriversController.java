@@ -1,7 +1,9 @@
 package com.example.projektkoncowy.controller;
 
 
+import com.example.projektkoncowy.model.Cars;
 import com.example.projektkoncowy.model.Drivers;
+import com.example.projektkoncowy.repository.CarRepository;
 import com.example.projektkoncowy.repository.DriverRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,9 @@ public class DriversController {
 
     @Autowired
     private DriverRepository driverRepository;
+
+    @Autowired
+    CarRepository carRepository;
 
 
     @RequestMapping("/all")
@@ -65,4 +70,6 @@ public class DriversController {
         driverRepository.deleteById(id);
         return "redirect:/drivers/all";
     }
+
+
 }

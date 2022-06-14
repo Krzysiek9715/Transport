@@ -2,6 +2,10 @@ package com.example.projektkoncowy.model;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -74,6 +78,7 @@ public class Cars {
                 ", plates='" + plates + '\'' +
                 ", brand='" + brand + '\'' +
                 ", yearOfProduction=" + yearOfProduction +
+                ", kierowca= "+ driver.getFirstName()+" "+driver.getLastName()+
                 '}';
     }
 }

@@ -2,6 +2,7 @@ package com.example.projektkoncowy.model;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 
 @Entity
 @Table(name = "users")
@@ -20,6 +21,7 @@ public class User {
     private String lastName;
 
     @Column
+    @Email
     private String email;
 
     @Column
@@ -28,6 +30,10 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;
+
+    @OneToOne
+    @JoinColumn(name = "driver_id")
+    private Drivers drivers;
 
     public Long getId() {
         return id;
@@ -77,11 +83,41 @@ public class User {
         this.username = username;
     }
 
+//    public RoleTest getRoleTest() {
+//        return roleTest;
+//    }
+//
+//    public void setRoleTest(RoleTest roleTest) {
+//        this.roleTest = roleTest;
+//    }
+
+
     public Role getRole() {
         return role;
     }
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Drivers getDrivers() {
+        return drivers;
+    }
+
+    public void setDrivers(Drivers drivers) {
+        this.drivers = drivers;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", role=" + role +
+                ", drivers=" + drivers +
+                '}';
     }
 }

@@ -1,12 +1,12 @@
 package com.example.projektkoncowy.repository;
 
-import com.example.projektkoncowy.model.Drivers;
+
+import com.example.projektkoncowy.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DriverRepository extends JpaRepository<Drivers, Long> {
+public interface RoleRepository extends JpaRepository<Role,Long> {
 
-        Drivers findDriversById(Long id);
-
+        Role findByName(String name);
 }

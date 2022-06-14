@@ -1,6 +1,9 @@
 package com.example.projektkoncowy.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 @Entity
@@ -18,9 +21,12 @@ public class Loads {
     private String unloadCity;
 
     @Column
+    @Min(1)
     private Integer price;
 
     @Column
+    @Min(1)
+    @Max(2500)
     private Integer kilometers;
 
 

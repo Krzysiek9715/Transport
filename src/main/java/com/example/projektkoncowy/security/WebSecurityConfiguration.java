@@ -21,6 +21,12 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService userDetailsService;
 
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+
     @Bean
     public AuthenticationProvider authenticationProvider(){
         DaoAuthenticationProvider provider
@@ -36,19 +42,17 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http
                 .authorizeRequests()
-                .antMatchers("/register").permitAll()
-                .antMatchers("/").authenticated()
+                .antMatchers("/").hasAnyAuthority("ADMIN","DRIVER")
+                .antMatchers("/users/**").hasAuthority("ADMIN")
+                .antMatchers("/loads/**").hasAuthority("ADMIN")
+                .antMatchers("/cars/**").hasAuthority("ADMIN")
+                .antMatchers("/drivers/**").hasAuthority("ADMIN")
+                .antMatchers("/driverData/**").hasAnyAuthority("ADMIN","DRIVER")
                 .and()
                 .formLogin()
-                    .defaultSuccessUrl("/dashboard")
+                    .defaultSuccessUrl("/")
                     .permitAll()
                 .and()
                 .logout().permitAll();
     }
-
-    @Bean
-    protected PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
-
 }
